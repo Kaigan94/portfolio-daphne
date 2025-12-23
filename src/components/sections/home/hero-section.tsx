@@ -103,8 +103,8 @@ export default function HeroSection() {
                   Hi! I&apos;m Daphne Eriksson, Digital Designer
                 </TextEffect>
                 <TextEffect per="line" preset="fade-in-blur" speedSegment={0.3} delay={0.5} as="p" className="mx-auto mt-8 max-w-2xl text-balance text-lg">
-                  Short bio text here about Dasni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis dolorem asperiores molestias corporis
-                  excepturi illo minima eos, iusto inventore fugiat praesentium amet voluptate blanditiis vitae quod aspernatur fugit qui nihil?
+                  Digital Content Design Student at Medieinstitutet, Malmö. I specialize in crafting engaging digital experiences through innovative design and
+                  creative solutions.
                 </TextEffect>
 
                 <AnimatedGroup

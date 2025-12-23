@@ -10,8 +10,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProjectPage({ params }: { params: { id: string } }) {
-  const project = PORTFOLIO_CONTENT.find((p) => p.id === params.id);
+export default async function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const project = PORTFOLIO_CONTENT.find((p) => p.id === id);
 
   if (!project) {
     notFound();
@@ -32,16 +33,15 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
           </div>
 
           <div className="space-y-6">
-            <Image src={project.img} alt={project.name} width={1200} height={800} className="rounded-lg w-full object-cover" />
-
             <div className="prose dark:prose-invert max-w-none">
               <h2>About the Project</h2>
+              <br />
               <p>
                 This project showcases a comprehensive approach to modern web design and development. The focus was on creating an engaging user experience
                 while maintaining clean, maintainable code and optimal performance.
               </p>
-
-              <h2>Key Features</h2>
+              <br />
+              {/* <h2>Key Features</h2>
               <ul>
                 <li>Responsive design that works seamlessly across all devices</li>
                 <li>Optimized performance and loading times</li>
@@ -50,8 +50,9 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
               </ul>
 
               <h2>Technologies Used</h2>
-              <p>Built with modern web technologies including Next.js, TypeScript, and Tailwind CSS, ensuring a robust and scalable foundation.</p>
+              <p>Built with modern web technologies including Next.js, TypeScript, and Tailwind CSS, ensuring a robust and scalable foundation.</p> */}
             </div>
+            <Image src={project.img} alt={project.name} width={1200} height={800} className="rounded-lg w-full object-cover" />
           </div>
 
           {project.url !== "#" && (
