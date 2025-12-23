@@ -1,44 +1,44 @@
 export const PORTFOLIO_CONTENT = [
   {
-    name: "GreenScape Landscaping",
-    description:
-      "Modern landing page for a landscaping company featuring service showcases, before/after galleries, and instant quote requests.",
+    id: "vans",
+    name: "Vans",
+    description: "Modern e-commerce experience showcasing Vans' iconic skateboarding culture",
     img: "/images/portfolio/eco.jpg",
     url: "#",
   },
   {
-    name: "Starlight Prom Nights",
-    description:
-      "Vibrant promotional page for high school prom parties with ticket booking, photo galleries, and theme selection.",
+    id: "oatly",
+    name: "Oatly",
+    description: "Sleek and sustainable design for Oatly's plant-based product line",
+    img: "/images/portfolio/eco.jpg",
+    url: "#",
+  },
+  {
+    id: "bubs",
+    name: "Bubs",
+    description: "Playful and vibrant design system for a modern confectionery brand",
+    img: "/images/portfolio/eco.jpg",
+    url: "#",
+  },
+  {
+    id: "lyko",
+    name: "Lyko",
+    description: "Beauty and cosmetics platform with elegant product showcases",
     img: "/images/portfolio/event.jpg",
     url: "#",
   },
   {
-    name: "Prestige College of Arts",
-    description:
-      "Elegant academic landing page with program highlights, virtual campus tours, and application portals.",
-    img: "/images/portfolio/art.jpg",
+    id: "indie-island",
+    name: "Indie Island",
+    description: "Creative platform celebrating independent artists and creators",
+    img: "/images/portfolio/event.jpg",
     url: "#",
   },
   {
-    name: "CycleSpot Rentals",
-    description:
-      "Bike rental platform with location-based availability, pricing calculators, and secure online bookings.",
-    img: "/images/portfolio/bike.jpg",
-    url: "#",
-  },
-  {
-    name: "Bella Cucina Restaurant",
-    description:
-      "Appetizing restaurant landing page with menu displays, reservation system, and chef's specials highlights.",
-    img: "/images/portfolio/resturant.jpg",
-    url: "#",
-  },
-  {
-    name: "SereneMind Meditation",
-    description:
-      "Calming meditation app interface with guided session timers, progress tracking, and relaxation music integration.",
-    img: "/images/portfolio/meditation.jpg",
+    id: "bonan-och-boken",
+    name: "Bönan & Boken",
+    description: "Cozy café and bookshop experience with warm, inviting design",
+    img: "/images/portfolio/event.jpg",
     url: "#",
   },
 ];

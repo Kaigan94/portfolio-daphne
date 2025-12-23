@@ -1,6 +1,6 @@
 # Daphne's Portfolio
 
-A beautiful portfolio website built for my fiancée, featuring smooth animations and modern UI components. Built with Next.js and TypeScript.
+A beautiful portfolio website built for my partner, featuring smooth animations and modern UI components. Built with Next.js and TypeScript.
 
 ## Getting Started
 

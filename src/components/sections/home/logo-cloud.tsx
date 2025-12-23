@@ -19,19 +19,6 @@ export default function LogoCloud() {
               <div className="flex">Logo</div>
               <div className="flex">Logo</div>
             </InfiniteSlider>
-
-            {/* <div className="bg-linear-to-r from-none absolute inset-y-0 left-0 w-20"></div>
-            <div className="bg-linear-to-l from-none absolute inset-y-0 right-0 w-20"></div> */}
-            {/* <ProgressiveBlur
-              className="pointer-events-none absolute left-0 top-0 h-full w-80"
-              direction="left"
-              blurIntensity={0.9}
-            />
-            <ProgressiveBlur
-              className="pointer-events-none absolute right-0 top-0 h-full w-20"
-              direction="right"
-              blurIntensity={1}
-            /> */}
           </div>
         </div>
       </div>
