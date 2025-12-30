@@ -17,17 +17,13 @@ export default function PortfolioCard({
     <div>
       <CustomCursorElement cursor={<div className="text-zinc-950 text-lg font-medium">View</div>}>
         <ScrollView>
-          <div className="group hover:scale-105 transition-all duration-500 ">
+          <div className="group hover:scale-105 transition-all duration-500">
             <a href={`/projects/${card.id}`}>
-              <Image
-                className=" w-full grayscale-25 hover:grayscale-0 rounded-md object-cover object-top  transition-all duration-500  "
-                height="480"
-                width="720"
-                src={card.img}
-                alt={card.name}
-              />
+              <div className="relative w-full h-[200px] overflow-hidden rounded-lg">
+                <Image className="grayscale-25 hover:grayscale-0 transition-all duration-500 object-cover" fill src={card.img} alt={card.name} />
+              </div>
               <div className="mt-4">
-                <h3 className="text-title text-2xl font-medium ">{card.name}</h3>
+                <h3 className="text-title text-2xl font-medium">{card.name}</h3>
                 <p className="text-muted-foreground">{card.description}</p>
               </div>
             </a>

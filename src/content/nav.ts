@@ -4,11 +4,11 @@ export const NAV_LINKS = [
     href: "/",
   },
   {
-    name: "Portfolio",
-    href: "#portfolio",
+    name: "Projects",
+    href: "/#portfolio",
   },
   {
     name: "Contact",
-    href: "#contact",
+    href: "/#contact",
   },
 ];
