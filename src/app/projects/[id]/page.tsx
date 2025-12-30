@@ -1,8 +1,8 @@
 import { PORTFOLIO_CONTENT } from "@/content/portfolio";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
+import { ImageGallery } from "@/components/image-gallery";
 
 export async function generateStaticParams() {
   return PORTFOLIO_CONTENT.map((project) => ({
@@ -17,8 +17,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
   if (!project) {
     notFound();
   }
-
-  //* Individual Projects Page *//
 
   return (
     <main className="min-h-screen py-20 px-6">
@@ -38,28 +36,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
             <p>{project.longDescription || project.description}</p>
           </div>
 
-          {/* Only show gallery if images exist */}
-          {project.gallery && project.gallery.length > 0 && (
-            <div className="space-y-6">
-              <h2 className="text-3xl font-bold">Gallery</h2>
+          {/* Using the ImageGallery component */}
+          {project.gallery && project.gallery.length > 0 && <ImageGallery images={project.gallery} projectName={project.name} />}
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {project.gallery.slice(0, 2).map((img, idx) => (
-                  <div key={idx} className="relative h-[300px] rounded-lg overflow-hidden">
-                    <Image src={img} alt={`${project.name} ${idx + 1}`} fill className="object-cover transition-transform duration-500" />
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Only show videos if they exist */}
           {project.videos && project.videos.length > 0 && (
             <div className="space-y-4">
               <h3 className="text-2xl font-semibold">Project Showcase</h3>
               {project.videos.map((video, idx) => (
                 <div key={idx} className="relative w-full aspect-video rounded-lg overflow-hidden bg-muted">
-                  <video className="w-full h-full object-cover" controls preload="metadata">
+                  <video className="w-full h-full object-contain" controls preload="metadata">
                     <source src={video} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
@@ -68,20 +53,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
             </div>
           )}
         </div>
-
-        {project.url !== "#" && (
-          <div className="pt-8">
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 rounded-full hover:opacity-90 transition-opacity"
-            >
-              View Live Project
-              <ArrowLeft className="w-4 h-4 rotate-180" />
-            </a>
-          </div>
-        )}
       </div>
     </main>
   );

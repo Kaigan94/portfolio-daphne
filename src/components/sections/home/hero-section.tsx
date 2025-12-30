@@ -121,9 +121,7 @@ export default function HeroSection() {
                   }}
                   className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row"
                 >
-                  <Button key={2} asChild size="lg" variant="ghost" className="h-10.5 rounded-xl px-5">
-                    ye
-                  </Button>
+                  <Button key={2} asChild size="lg" variant="ghost" className="h-10.5 rounded-xl px-5"></Button>
                 </AnimatedGroup>
               </div>
             </div>

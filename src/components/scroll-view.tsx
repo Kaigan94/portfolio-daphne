@@ -37,13 +37,7 @@ export function ScrollView({
   );
 }
 
-export function ScrollViewStaggerWrapper({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
+export function ScrollViewStaggerWrapper({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <motion.div
       variants={{
