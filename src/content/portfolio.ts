@@ -42,6 +42,18 @@ export const PORTFOLIO_CONTENT = [
     videos: null,
   },
   {
+    id: "oatly-trimpath",
+    name: "Oatly - Original",
+    featured: false,
+    description: "Clean and modern design for Oatly's original oat milk product packaging",
+    img: "/projects/oatly/oatly-trimpath-thumb.png",
+    url: "#",
+    longDescription:
+      "A minimalist design project for Oatly's original oat milk product. The focus was on creating a clean and modern aesthetic that reflects the brand's Swedish design heritage while maintaining its playful tone.",
+    gallery: null,
+    videos: ["/projects/oatly/oatly-trimpath.mp4"],
+  },
+  {
     id: "oatly-vanilla",
     name: "Oatly - Vanilla Sauce",
     featured: false,

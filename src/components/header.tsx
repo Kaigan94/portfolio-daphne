@@ -7,7 +7,6 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { NAV_LINKS } from "@/content/nav";
 import { useTheme } from "next-themes";
-import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 
 export const HeroHeader = () => {
@@ -15,6 +14,7 @@ export const HeroHeader = () => {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [mounted, setMounted] = React.useState(false);
   const { theme, setTheme } = useTheme();
+  const menuRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     setMounted(true);
@@ -28,9 +28,30 @@ export const HeroHeader = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close menu when clicking outside
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node) && menuState) {
+        setMenuState(false);
+      }
+    };
+
+    if (menuState) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuState]);
+
+  const handleLinkClick = () => {
+    setMenuState(false);
+  };
+
   return (
     <header>
-      <nav data-state={menuState && "active"} className="fixed z-20 w-full px-2">
+      <nav data-state={menuState && "active"} className="fixed z-20 w-full px-2" ref={menuRef}>
         <div
           className={cn(
             "mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12",
@@ -77,7 +98,7 @@ export const HeroHeader = () => {
                 <ul className="space-y-6 text-base">
                   {NAV_LINKS.map((item, index) => (
                     <li key={index}>
-                      <Link href={item.href} className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                      <Link href={item.href} onClick={handleLinkClick} className="text-muted-foreground hover:text-accent-foreground block duration-150">
                         <span>{item.name}</span>
                       </Link>
                     </li>

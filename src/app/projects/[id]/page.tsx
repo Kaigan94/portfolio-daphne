@@ -10,20 +10,25 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function ProjectPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ from?: string }> }) {
   const { id } = await params;
+  const { from } = await searchParams;
   const project = PORTFOLIO_CONTENT.find((p) => p.id === id);
 
   if (!project) {
     notFound();
   }
 
+  // Determine back link based on where the user came from
+  const backLink = from === "all-projects" ? "/projects" : "/#portfolio";
+  const backText = from === "all-projects" ? "Back to All Projects" : "Back to Projects";
+
   return (
     <main className="min-h-screen py-20 px-6">
       <div className="max-w-5xl mx-auto">
-        <Link href="/#portfolio" className="text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-2 transition-colors">
+        <Link href={backLink} className="text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-2 transition-colors">
           <ArrowLeft className="w-4 h-4" />
-          Back to Projects
+          {backText}
         </Link>
 
         <div className="mt-12 space-y-12">

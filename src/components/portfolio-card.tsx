@@ -4,6 +4,7 @@ import { ScrollView } from "./scroll-view";
 
 export default function PortfolioCard({
   card,
+  source = "home",
 }: {
   card: {
     id: string;
@@ -12,13 +13,14 @@ export default function PortfolioCard({
     img: string;
     url: string;
   };
+  source?: "home" | "all-projects";
 }) {
   return (
     <div>
       <CustomCursorElement cursor={<div className="text-zinc-950 text-lg font-medium">View</div>}>
         <ScrollView>
           <div className="group hover:scale-105 transition-all duration-500">
-            <a href={`/projects/${card.id}`}>
+            <a href={`/projects/${card.id}?from=${source}`}>
               <div className="relative w-full h-[200px] overflow-hidden rounded-lg">
                 <Image className="grayscale-25 hover:grayscale-0 transition-all duration-500 object-cover" fill src={card.img} alt={card.name} />
               </div>

@@ -14,7 +14,7 @@ export default function ProjectsPage() {
         <div className="max-w-5xl mx-auto">
           <Link href="/" className="text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-2 transition-colors">
             <ArrowLeft className="w-4 h-4" />
-            Back to Home
+            <span className="text-lg">Back to Home</span>
           </Link>
 
           <div className="mt-12 space-y-12">
@@ -26,7 +26,7 @@ export default function ProjectsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
               {PORTFOLIO_CONTENT.map((item, index) => (
                 <div key={index} className={index % 2 === 1 ? "md:mt-20" : ""}>
-                  <PortfolioCard card={item} />
+                  <PortfolioCard card={item} source="all-projects" />
                 </div>
               ))}
             </div>

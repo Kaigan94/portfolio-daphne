@@ -14,13 +14,13 @@ export default function PortfolioSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
           {FEATURED_PROJECTS.map((item, index) => (
             <div key={index} className={index % 2 === 1 ? "md:mt-20" : ""}>
-              <PortfolioCard card={item} />
+              <PortfolioCard card={item} source="home" />
             </div>
           ))}
         </div>
         <div className="text-center pt-8">
           <Link href="/projects" className="inline-flex items-center gap-2 text-sm hover:text-accent-foreground transition-colors">
-            View All Projects
+            <span className="text-md font-semibold">View All Projects</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
