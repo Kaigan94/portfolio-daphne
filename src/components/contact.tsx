@@ -1,102 +1,41 @@
-// "use client";
-// import { Mail, MapPin, PhoneCall } from "lucide-react";
-// import { Button } from "@/components/ui/button";
-// import { Input } from "@/components/ui/input";
-// import { Label } from "@/components/ui/label";
-// import { Textarea } from "@/components/ui/textarea";
+"use client";
+import { Mail } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import Link from "next/link";
+import { ScrollView } from "./scroll-view";
 
-// import { Card } from "@/components/ui/card";
-// import Link from "next/link";
-// import { ScrollView } from "./scroll-view";
-// import { useState } from "react";
+export default function ContactCards() {
+  return (
+    <section id="contact" className="py-16 md:py-32">
+      <div className="mx-auto max-w-5xl px-6">
+        <ScrollView>
+          <h2 className="text-3xl font-bold text-center mb-12">Get In Touch</h2>
+        </ScrollView>
+        <ScrollView stagger delay={0.1}>
+          <div className="flex gap-4 flex-wrap items-center justify-center">
+            <Card className="p-6 flex items-center gap-4 hover:shadow-lg transition-shadow">
+              <Mail className="w-6 h-6" />
+              <a href="mailto:daphnevceriksson@gmail.com" className="text-sm font-medium hover:underline">
+                Send Email
+              </a>
+            </Card>
 
-export default function FeaturesSection() {
-  return null;
+            <Card className="p-6 flex items-center gap-4 hover:shadow-lg transition-shadow">
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+              <Link
+                href="https://www.linkedin.com/in/daphne-eriksson-86b258162/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium hover:underline"
+              >
+                LinkedIn Profile
+              </Link>
+            </Card>
+          </div>
+        </ScrollView>
+      </div>
+    </section>
+  );
 }
-
-// export default function FeaturesSection() {
-//   const [isSubmitting, setIsSubmitting] = useState(false);
-//   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
-
-//   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-//     e.preventDefault();
-//     setIsSubmitting(true);
-//     setStatus("idle");
-
-//     const formData = new FormData(e.currentTarget);
-//     const data = {
-//       name: formData.get("name") as string,
-//       email: formData.get("email") as string,
-//       message: formData.get("message") as string,
-//     };
-
-//     try {
-//       const response = await fetch("/api/contact", {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(data),
-//       });
-
-//       const result = await response.json();
-
-//       if (result.success) {
-//         setStatus("success");
-//         e.currentTarget.reset();
-//         setTimeout(() => setStatus("idle"), 5000);
-//       } else {
-//         throw new Error("Failed to send message");
-//       }
-//     } catch (error) {
-//       setStatus("error");
-//       setTimeout(() => setStatus("idle"), 5000);
-//     } finally {
-//       setIsSubmitting(false);
-//     }
-//   };
-
-//   return (
-//     <section id="contact" className="py-16 md:py-32 bg-gray-50 dark:bg-transparent">
-//       <div className="mx-auto max-w-6xl px-6">
-//         <div className="grid items-center gap-12 md:grid-cols-2 md:gap-12 lg:grid-cols-5 lg:gap-24">
-//           <div className="lg:col-span-full">
-//             <ScrollView>
-//               <Card className="mx-auto mt-12 max-w-lg p-8 shadow-md sm:p-16 w-full">
-//                 <div>
-//                   <h3 className="text-lg font-semibold">Any questions?</h3>
-//                   <p className="mt-4 text-sm">Reach out to me! I&apos;m eager to learn more about how I can assist you.</p>
-//                 </div>
-
-//                 <form onSubmit={handleSubmit} className="**:[&>label]:block mt-12 space-y-6 *:space-y-3">
-//                   <div>
-//                     <Label htmlFor="name">Full name</Label>
-//                     <Input type="text" id="name" name="name" required />
-//                   </div>
-
-//                   <div>
-//                     <Label htmlFor="email">Email</Label>
-//                     <Input type="email" id="email" name="email" required />
-//                   </div>
-
-//                   <div>
-//                     <Label htmlFor="msg">Message</Label>
-//                     <Textarea id="msg" name="message" rows={3} required />
-//                   </div>
-
-//                   {status === "success" && <p className="text-sm text-green-600 dark:text-green-400">Message sent successfully! Thank you for reaching out.</p>}
-
-//                   {status === "error" && <p className="text-sm text-red-600 dark:text-red-400">Failed to send message. Please try again.</p>}
-
-//                   <Button type="submit" disabled={isSubmitting}>
-//                     {isSubmitting ? "Sending..." : "Submit"}
-//                   </Button>
-//                 </form>
-//               </Card>
-//             </ScrollView>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
