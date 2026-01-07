@@ -14,7 +14,7 @@ export default function PortfolioSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
           {FEATURED_PROJECTS.map((item, index) => (
             <div key={index} className={index % 2 === 1 ? "md:mt-20" : ""}>
-              <PortfolioCard card={item} source="home" />
+              <PortfolioCard card={item} source="home" priority={index < 2} />
             </div>
           ))}
         </div>

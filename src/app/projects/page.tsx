@@ -26,7 +26,7 @@ export default function ProjectsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
               {PORTFOLIO_CONTENT.map((item, index) => (
                 <div key={index} className={index % 2 === 1 ? "md:mt-20" : ""}>
-                  <PortfolioCard card={item} source="all-projects" />
+                  <PortfolioCard card={item} source="all-projects" priority={index < 2} />
                 </div>
               ))}
             </div>
